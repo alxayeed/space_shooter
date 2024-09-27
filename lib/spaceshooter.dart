@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 
@@ -12,15 +11,7 @@ class SpaceShooter extends FlameGame with PanDetector {
   Future<void> onLoad() async {
     await super.onLoad();
 
-    final playerSprite = await loadSprite("player.png");
-
-    player = Player()
-      ..sprite = playerSprite
-      ..x = size.x / 2
-      ..y = size.y / 2
-      ..width = 50
-      ..height = 100
-      ..anchor = Anchor.center;
+    player = Player();
 
     add(player);
   }
