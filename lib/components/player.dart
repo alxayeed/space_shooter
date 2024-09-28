@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:spaceshooter/components/bullet.dart';
 import 'package:spaceshooter/spaceshooter.dart';
@@ -47,6 +48,8 @@ class Player extends SpriteAnimationComponent
     );
 
     game.add(_bulletSpawner);
+
+    add(RectangleHitbox());
   }
 
   void move(Vector2 delta) {

@@ -1,5 +1,6 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
+import 'package:spaceshooter/components/player.dart';
 import 'package:spaceshooter/spaceshooter.dart';
 
 import 'bullet.dart';
@@ -51,6 +52,15 @@ class Enemy extends SpriteAnimationComponent
       removeFromParent();
       other.removeFromParent();
       game.add(Explosion(position: position));
+    }
+
+    if (other is Player) {
+      removeFromParent();
+      other.removeFromParent();
+      game.add(Explosion(position: position));
+      Future.delayed(const Duration(seconds: 3), () {
+        game.add(Player());
+      });
     }
   }
 }
