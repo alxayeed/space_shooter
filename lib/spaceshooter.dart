@@ -10,7 +10,7 @@ import 'package:flutter/cupertino.dart';
 import 'components/enemy.dart';
 import 'components/player.dart';
 
-class SpaceShooter extends FlameGame with PanDetector {
+class SpaceShooter extends FlameGame with PanDetector, HasCollisionDetection {
   late Player player;
   @override
   Future<void> onLoad() async {

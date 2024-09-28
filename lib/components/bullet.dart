@@ -1,3 +1,4 @@
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:spaceshooter/spaceshooter.dart';
 
@@ -18,6 +19,12 @@ class Bullet extends SpriteAnimationComponent
         amount: 4,
         stepTime: .1,
         textureSize: Vector2(8, 16),
+      ),
+    );
+
+    add(
+      RectangleHitbox(
+        collisionType: CollisionType.passive,
       ),
     );
   }
