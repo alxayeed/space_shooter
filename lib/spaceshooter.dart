@@ -2,10 +2,12 @@ import 'dart:async';
 
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
+import 'package:flame/experimental.dart';
 import 'package:flame/game.dart';
 import 'package:flame/parallax.dart';
 import 'package:flutter/cupertino.dart';
 
+import 'components/enemy.dart';
 import 'components/player.dart';
 
 class SpaceShooter extends FlameGame with PanDetector {
@@ -26,6 +28,16 @@ class SpaceShooter extends FlameGame with PanDetector {
 
     player = Player();
     add(player);
+
+    add(
+      SpawnComponent(
+        factory: (index) {
+          return Enemy();
+        },
+        period: 1,
+        area: Rectangle.fromLTWH(0, 0, size.x, -Enemy.enemySize),
+      ),
+    );
   }
 
   @override
